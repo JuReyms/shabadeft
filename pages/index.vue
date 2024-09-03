@@ -61,7 +61,9 @@
         </template>
 
         <template v-slot:default="{ isActive }">
-          <v-card title="Régles du jeu">
+          <v-card class="pa-4">
+
+            <v-card-title class="text-h4">Régles du jeu</v-card-title>
             <v-card-text class="text-justify">
               <p>Les équipes doivent trouver un extrait de chanson contenant l'un des deux mots proposés. La première
                 équipe à en trouver un démarre le jeu ! Il faut chanter au moins quelques mots de l'extrait choisi. Les
