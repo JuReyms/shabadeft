@@ -14,27 +14,28 @@
 
       <h1 class="text-center my-10 text-uppercase text-h4">Shabadeft</h1>
 
-      <div class="d-flex flex-row align-center justify-center score rounded-lg">
-        <v-icon size="50">mdi-crown</v-icon>
-        <span class="mx-5 font-weight-bold bg-indigo py-4 px-4 text-h4 score-count" style="vertical-align: middle">{{
-      scoreTeam1 }} · {{ scoreTeam2 }}</span>
-        <v-icon size="50">mdi-crown-outline</v-icon>
+      <div class="d-flex flex-row align-center justify-center score rounded-lg justify-space-evenly">
+
+       <v-icon size="50">mdi-crown</v-icon>
+        
+        <div class=" font-weight-bold bg-indigo py-4 px-8 text-h4 score-count" style="vertical-align: middle">{{
+      scoreTeam1 }} · {{ scoreTeam2 }}</div>
+
+      <v-icon size="50">mdi-crown-outline</v-icon>
+       
       </div>
 
       <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn  rounded-lg" width="100%"
         min-height="200" min-width="200" color="indigo">
 
 
-        <v-card-title class="text-h3 mb-3 mt-5 animate__animated animate__fadeIn">{{ selectedSong.french
+        <v-card-title class="text-h3 mb-5 mt-5 animate__animated animate__fadeIn">{{ selectedSong.french
           }}</v-card-title>
-
-
 
         <!-- separateur -->
         <v-divider></v-divider>
 
-
-        <v-card-title class="text-h3 mb-5 mt-3 animate__animated animate__fadeIn">{{ selectedSong.english
+        <v-card-title class="text-h3 mb-5 mt-5 animate__animated animate__fadeIn">{{ selectedSong.english
           }}</v-card-title>
 
 
@@ -51,7 +52,7 @@
             size="40">mdi-crown-outline</v-icon></v-btn>
       </div>
 
-      <p text class="text-center pt-10 footer">2024 © shabadeft - 1.2</p>
+      <p text class="text-center pt-10 footer">2024 © shabadeft - 1.21</p>
 
 
       <v-dialog>
@@ -65,7 +66,7 @@
 
             <v-card-title class="text-h4">Régles du jeu</v-card-title>
             <v-card-text class="text-justify">
-              <p>Les équipes doivent trouver un extrait de chanson contenant l'un des deux mots proposés. La première
+              <p>Les équipes (noire et blanche) doivent trouver un extrait de chanson contenant l'un des deux mots proposés. La première
                 équipe à en trouver un démarre le jeu ! Il faut chanter au moins quelques mots de l'extrait choisi. Les
                 chansons peuvent être en français ou en anglais.</p>
 
@@ -147,7 +148,7 @@ export default {
       const availableSongs = this.songs.filter(song => !this.usedIds.includes(song.id));
 
       if (availableSongs.length === 0) {
-        alert("All songs have been used.");
+        alert("Il n'y a plus de chansons disponibles ! Réachargez la page pour recommencer une partie.");
         return;
       }
 
