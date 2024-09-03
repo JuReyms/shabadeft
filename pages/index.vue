@@ -3,7 +3,6 @@
   <v-sheet class="d-flex align-center justify-center flex-column animate__animated animate__fadeIn " height="100vh"
     color="#E8EAF6">
 
-
     <!-- Affichage des erreurs -->
     <div v-if="error">
       <p>Error loading songs: {{ error.message }}</p>
@@ -11,50 +10,40 @@
 
     <section v-else-if="selectedSong" class="main">
 
-
       <h1 class="text-center my-10 text-uppercase text-h4">Shabadeft</h1>
 
       <div class="d-flex flex-row align-center justify-center score rounded-lg justify-space-evenly">
-
-       <v-icon size="50">mdi-crown</v-icon>
-        
-        <div class=" font-weight-bold bg-indigo py-4 px-8 text-h4 score-count" style="vertical-align: middle">{{
-      scoreTeam1 }} · {{ scoreTeam2 }}</div>
-
-      <v-icon size="50">mdi-crown-outline</v-icon>
-       
+        <v-icon size="50">mdi-crown</v-icon>
+        <div class=" font-weight-bold bg-indigo py-4 px-8 text-h4 score-count score-bg " style="vertical-align: middle">
+          <div class="score-display"> {{ scoreTeam1 }} · {{ scoreTeam2 }}</div>
+        </div>
+        <v-icon size="50">mdi-crown-outline</v-icon>
       </div>
 
-      <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn  rounded-lg"  width="100%"
+      <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn  rounded-lg carte-tourne"  width="100%"
         min-height="200" min-width="200" color="indigo">
 
-
-        <v-card-title class="text-h3 mb-5 mt-5 animate__animated animate__fadeIn">{{ selectedSong.french }}</v-card-title>
+        <v-card-title class="text-h3 mb-5 mt-5 carte-typo">{{ selectedSong.french }}</v-card-title>
 
         <!-- separateur -->
         <v-divider :thickness="10"></v-divider>
 
-        <v-card-title class="text-h3 mb-5 mt-5 animate__animated animate__fadeIn">{{ selectedSong.english }}</v-card-title>
-
+        <v-card-title class="text-h3 mb-5 mt-5 carte-typo">{{ selectedSong.english }}</v-card-title>
 
       </v-card>
 
       <!-- Bouton pour récupérer une chanson aléatoire et ajouter un point -->
       <div class="text-center my-5  animate__animated animate__fadeInUp">
-        <v-btn @click="addPoint(1)" class="px-8 mr-5  rounded-lg" height="60"><v-icon
-            size="40">mdi-crown</v-icon></v-btn>
+        <v-btn @click="addPoint(1)" class="px-8 mr-5  rounded-lg" height="60"><v-icon size="40">mdi-crown</v-icon></v-btn>
         <v-btn @click="getRandomSong" class="px-4  rounded-lg" height="60">
           <v-icon size="40"> mdi-close-circle-outline</v-icon>
         </v-btn>
-        <v-btn @click="addPoint(2)" class="px-8 ml-5  rounded-lg" height="60"><v-icon
-            size="40">mdi-crown-outline</v-icon></v-btn>
+        <v-btn @click="addPoint(2)" class="px-8 ml-5  rounded-lg" height="60"><v-icon size="40">mdi-crown-outline</v-icon></v-btn>
       </div>
 
-      <p text class="text-center pt-10 footer">2024 © shabadeft - 1.21</p>
-
+      <p text class="text-center pt-10 footer">2024 © shabadeft - {{ version }}</p>
 
       <v-dialog>
-
         <template v-slot:activator="{ props: activatorProps }">
           <v-btn icon="mdi-menu" size="small" class="btn-menu" v-bind="activatorProps"></v-btn>
         </template>
@@ -68,25 +57,25 @@
                 équipe à en trouver un démarre le jeu ! Il faut chanter au moins quelques mots de l'extrait choisi. Les
                 chansons peuvent être en français ou en anglais.</p>
 
-                <v-spacer class="my-8" ></v-spacer>
+              <v-spacer class="my-8"></v-spacer>
 
               <p>Ensuite, c'est au tour de l'équipe adverse de trouver un nouvel extrait avec un mot de la même série, 
                 dans la langue de leur choix (français ou anglais).</p>
 
-              <v-spacer class="my-8" ></v-spacer>
+              <v-spacer class="my-8"></v-spacer>
 
               <p>Le jeu continue ainsi, chaque équipe alternant les extraits correspondant aux mots de la série.</p>
 
-              <v-spacer class="my-8" ></v-spacer>
+              <v-spacer class="my-8"></v-spacer>
 
               <p>Si une équipe ne parvient pas à trouver un extrait, l'équipe adverse peut entamer un compte à rebours de 10 secondes. 
                 Si le décompte se termine sans nouvel extrait, l'équipe qui a fait le décompte marque 1 point.</p>
 
-                <v-spacer class="my-8" ></v-spacer>
+              <v-spacer class="my-8"></v-spacer>
 
-              <p>La partie reprend ensuite avec l'équipe qui vient de perdre, en commençant une nouvelle série demots.</p>
+              <p>La partie reprend ensuite avec l'équipe qui vient de perdre, en commençant une nouvelle série de mots.</p>
 
-              <v-spacer class="my-8" ></v-spacer>
+              <v-spacer class="my-8"></v-spacer>
               <p>La première équipe à atteindre 10 points remporte la partie (mais vous pouvez continuer au-delà des 10 points si vous le souhaitez).</p>
 
             </v-card-text>
@@ -96,21 +85,20 @@
             </v-card-actions>
           </v-card>
         </template>
-
       </v-dialog>
-
-
 
     </section>
 
     <div v-else class="loader animate__animated animate__fadeIn"></div>
-
 
   </v-sheet>
 
 </template>
 
 <script>
+
+import anime from 'animejs/lib/anime.es.js';
+
 export default {
   data() {
     return {
@@ -120,8 +108,10 @@ export default {
       selectedSong: null,  // Chanson sélectionnée aléatoirement
       usedIds: [],         // IDs des chansons déjà récupérées
       scoreTeam1: 0,       // Score de l'Équipe 1
-      scoreTeam2: 0,        // Score de l'Équipe 2
-      loading: false      // btn - Chargement de la nouvelle chanson
+      scoreTeam2: 0,       // Score de l'Équipe 2
+      loading: false,       // btn - Chargement de la nouvelle chanson
+      version: '1.3.0'     // Version du jeu
+
     };
   },
   async mounted() {
@@ -139,36 +129,99 @@ export default {
     }
   },
   methods: {
+
     getRandomSong() {
-      if (this.songs.length === 0) return;
+  if (this.songs.length === 0) return;
 
-      // Filtrer les chansons non encore utilisées
-      const availableSongs = this.songs.filter(song => !this.usedIds.includes(song.id));
+  // Filtrer les chansons non encore utilisées
+  const availableSongs = this.songs.filter(song => !this.usedIds.includes(song.id));
 
-      if (availableSongs.length === 0) {
-        alert("Il n'y a plus de chansons disponibles ! Réachargez la page pour recommencer une partie.");
-        return;
-      }
+  if (availableSongs.length === 0) {
+    alert("Il n'y a plus de chansons disponibles ! Réachez la page pour recommencer une partie.");
+    return;
+  }
 
-      // Sélectionner une chanson aléatoire parmi celles disponibles
+  // Anime.js: Ajouter l'animation de rotation et d'opacité
+  anime({
+    targets: '.carte-tourne',
+    rotateX: 180,  // Une rotation complète sur l'axe X
+    duration: 1500,    // Durée de l'animation en millisecondes
+    easing: 'easeInOutQuad', // Courbe d'accélération pour une rotation fluide
+    begin: () => {
+      // Réduire l'opacité à 0 au début de la rotation
+      anime({
+        targets: '.carte-typo',
+        opacity: 0,
+        duration: 250,  // Durée de la transition d'opacité
+        easing: 'easeInOutQuad'
+      });
+    },
+    complete: () => {
+      // Réinitialiser la rotation pour permettre la prochaine animation
+      anime.set('.carte-tourne', { rotateX: 0 });
+
+      // Sélectionner une chanson aléatoire parmi celles disponibles une fois l'animation terminée
       const randomIndex = Math.floor(Math.random() * availableSongs.length);
       this.selectedSong = availableSongs[randomIndex];
 
       // Ajouter l'ID de la chanson sélectionnée aux IDs utilisés
       this.usedIds.push(this.selectedSong.id);
       console.log('this.usedIds :', this.usedIds);
-    },
-    addPoint(team) {
-      if (team === 1) {
-        this.scoreTeam1++;
-      } else if (team === 2) {
-        this.scoreTeam2++;
-      }
-      this.getRandomSong();
+
+      // Restaurer l'opacité à 1 après la rotation et changement de texte
+      anime({
+        targets: '.carte-typo',
+        opacity: 1,
+        duration: 1000,  // Durée du fondu pour revenir à l'opacité 1
+        delay: 100,      // Debut du fondu à 500 millisecondes
+        easing: 'easeInOutQuad'
+      });
     }
+  });
+},
+
+
+addPoint(team) {
+  if (team === 1) {
+    this.scoreTeam1++;
+  } else if (team === 2) {
+    this.scoreTeam2++;
+  }
+
+  // Anime.js: Ajouter une animation de "scale" sur le score
+  anime({
+    targets: '.score-display',
+    scale: [1, 1.2],   // Augmente la taille de 1 à 1.2
+    duration: 250,     // Durée de l'animation en millisecondes
+    easing: 'easeInOutQuad', // Courbe d'accélération pour une transition fluide
+    direction: 'alternate',  // Revenir à la taille normale après l'animation
+    complete: () => {
+      // Remise à l'échelle normale une fois l'animation terminée
+      anime.set('.score-display', { scale: 1 });
+    }
+  });
+
+  // Anime.js: Ajouter une animation de changement de couleur sur le fond score
+  anime({
+    targets: '.score-bg',
+    backgroundColor: [
+      { value: '#C5CAE9' }, // Couleur de fond souhaitée pendant l'animation
+      { value: '#E8EAF6' }  // Couleur de fond normale à la fin de l'animation
+    ],
+    duration: 250,     // Durée de l'animation en millisecondes
+    easing: 'easeInOutQuad', // Courbe d'accélération pour une transition fluide
+    direction: 'alternate'  // Revenir à la couleur normale après l'animation
+  });
+
+  this.getRandomSong();
+}
+
+
+
   }
 };
 </script>
+
 
 <style scoped>
 /* Ajoutez ici vos styles spécifiques si nécessaire */
@@ -201,7 +254,6 @@ export default {
 
 /* HTML: <div class="loader"></div> */
 .loader {
-  margin-top: 100px;
   width: 15px;
   aspect-ratio: 1;
   border-radius: 50%;

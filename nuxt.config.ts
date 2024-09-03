@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   ssr: true,
   pages: true,
   modules: ['vuetify-nuxt-module', 
+    '@hypernym/nuxt-anime',
     'nuxt-mdi', 
     ['@nuxtjs/google-fonts', {
     families: {
