@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Matemasie
+- Font Author: Copyright 2024 The Matemasie Project Authors (https://github.com/YADAMSS/Matemasie-Font/)
+- Font Source: https://fonts.gstatic.com/s/matemasie/v2/OD5BuMCN3ne3Gmr7dlL3rEq4DL6w2w.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
