@@ -19,7 +19,7 @@
       <v-icon size="40">mdi-crown-outline</v-icon>
     </div>
 
-      <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn" width="100%" min-height="200"
+      <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn" width="90%" min-height="200"
         min-width="200" color="indigo">
         <v-card-title class="text-h3 mb-5 mt-5">{{ selectedSong.french }}</v-card-title>
         <!-- separateur -->
