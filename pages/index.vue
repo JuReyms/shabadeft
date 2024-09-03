@@ -14,10 +14,10 @@
 
       <h1 class="text-center my-10 text-uppercase text-h3">Shabadeft</h1>
 
-      <div class="text-center py-5 px-5 score">
-        <v-icon size="40">mdi-crown</v-icon> <span class="mx-5 font-weight-bold bg-indigo py-4 px-4" color="red">{{
+      <div class="text-center py-3 px-5 score">
+        <v-icon size="50">mdi-crown</v-icon> <span class="mx-5 font-weight-bold bg-indigo py-4 px-4 text-h4 score-count" style="vertical-align: middle">{{
       scoreTeam1 }} · {{ scoreTeam2 }}</span>
-        <v-icon size="40">mdi-crown-outline</v-icon>
+        <v-icon size="50">mdi-crown-outline</v-icon>
       </div>
 
       <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn" width="100%" min-height="200"
@@ -43,14 +43,14 @@
 
       <!-- Bouton pour récupérer une chanson aléatoire et ajouter un point -->
       <div class="text-center my-5  animate__animated animate__fadeInUp">
-        <v-btn @click="addPoint(1)" class="px-5 mr-5" height="60"><v-icon size="40">mdi-crown</v-icon></v-btn>
-        <v-btn @click="getRandomSong" class="px-5" height="60">
+        <v-btn @click="addPoint(1)" class="px-10 mr-5" height="60"><v-icon size="40">mdi-crown</v-icon></v-btn>
+        <v-btn @click="getRandomSong" class="px-6" height="60">
           <v-icon size="40">mdi-music-circle-outline</v-icon>
         </v-btn>
-        <v-btn @click="addPoint(2)" class="px-5 ml-5" height="60"><v-icon size="40">mdi-crown-outline</v-icon></v-btn>
+        <v-btn @click="addPoint(2)" class="px-10 ml-5" height="60"><v-icon size="40">mdi-crown-outline</v-icon></v-btn>
       </div>
 
-      <p text class="text-center py-5 footer">2024 © shabadeft - 1.12</p>
+      <p text class="text-center py-5 footer">2024 © shabadeft - 1.2</p>
 
 
     </section>
@@ -127,6 +127,7 @@ export default {
 .main {
   padding: 0;
   width: 90%;
+  max-width: 500px;
 }
 
 .score {
