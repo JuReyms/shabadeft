@@ -61,7 +61,7 @@
         </template>
 
         <template v-slot:default="{ isActive }">
-          <v-card class="pa-4">
+          <v-card class="pa-4 mx-auto" width="900">
 
             <v-card-title class="text-h4">Régles du jeu</v-card-title>
             <v-card-text class="text-justify">
