@@ -12,7 +12,7 @@
     <section v-else-if="selectedSong" class="main">
 
 
-      <h1 class="text-center my-10 text-uppercase text-h3">Shabadeft</h1>
+      <h1 class="text-center my-10 text-uppercase text-h4">Shabadeft</h1>
 
       <div class="d-flex flex-row align-center justify-center score rounded-lg">
         <v-icon size="50">mdi-crown</v-icon>
@@ -61,7 +61,7 @@
         </template>
 
         <template v-slot:default="{ isActive }">
-          <v-card class="pa-4 mx-auto" width="900">
+          <v-card class="pa-4 mx-auto" max-width="900" width="100%">
 
             <v-card-title class="text-h4">Régles du jeu</v-card-title>
             <v-card-text class="text-justify">
