@@ -14,9 +14,9 @@
     "nuxt": "^3.13.0",
     "vue": "^3.4.38",
     "vue-router": "^4.4.3"
-
   },
   "devDependencies": {
+    "@nuxtjs/google-fonts": "^3.2.0",
     "nuxt-mdi": "^2.1.1",
     "vuetify": "^3.7.1",
     "vuetify-nuxt-module": "^0.18.2"

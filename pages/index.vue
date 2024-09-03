@@ -1,7 +1,17 @@
 <template>
 
-  <v-sheet class="d-flex align-center flex-column animate__animated animate__fadeIn" height="100vh" color="#E8EAF6">
-    <h1 class="text-center my-5 text-uppercase">Shabadeft</h1>
+  <v-sheet class="d-flex align-center justify-center flex-column animate__animated animate__fadeIn" height="100vh" color="#E8EAF6">
+ 
+
+    <!-- Affichage des erreurs -->
+    <div v-if="error">
+      <p>Error loading songs: {{ error.message }}</p>
+    </div>
+
+    <section v-else-if="selectedSong">   
+      
+      
+      <h1 class="text-center my-10 text-uppercase text-h3" >Shabadaft</h1>
 
     <div class="text-center py-5 px-5 score">
       <v-icon size="40">mdi-crown</v-icon> <span class="mx-5 font-weight-bold bg-indigo py-4 px-4" color="red">{{
@@ -9,17 +19,14 @@
       <v-icon size="40">mdi-crown-outline</v-icon>
     </div>
 
-    <!-- Affichage des erreurs -->
-    <div v-if="error">
-      <p>Error loading songs: {{ error.message }}</p>
-    </div>
-
-    <section v-else-if="selectedSong">
-
-      <v-card class="mx-auto my-10 text-center py-10 animate__animated animate__fadeIn" width="100%" min-height="200"
+      <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn" width="100%" min-height="200"
         min-width="200" color="indigo">
-        <v-card-title class="text-h4 mb-10 mt-10">{{ selectedSong.french }}</v-card-title>
-        <v-card-title class="text-h4 mb-10">{{ selectedSong.english }}</v-card-title>
+        <v-card-title class="text-h3 mb-5 mt-5">{{ selectedSong.french }}</v-card-title>
+        <!-- separateur -->
+        <v-divider></v-divider>
+        
+
+        <v-card-title class="text-h3 mb-5 mt-5">{{ selectedSong.english }}</v-card-title>
       </v-card>
 
       <!-- Bouton pour récupérer une chanson aléatoire et ajouter un point -->
@@ -31,7 +38,8 @@
         <v-btn @click="addPoint(2)" class="px-5 ml-5" height="60"><v-icon size="40">mdi-crown-outline</v-icon></v-btn>
       </div>
 
-      <p text class="text-center py-5 footer" >© shabadeft - 1.0</p>
+      <p text class="text-center py-5 footer" >2024 © shabadaft - 1.12</p>
+      
 
     </section>
 

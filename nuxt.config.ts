@@ -4,7 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: true,
   pages: true,
-  modules: ['vuetify-nuxt-module', 'nuxt-mdi'],
+  modules: ['vuetify-nuxt-module', 
+    'nuxt-mdi', 
+    ['@nuxtjs/google-fonts', {
+    families: {
+      Roboto: true,
+    }
+}]
+],
   app: {
     //pageTransition: { name: 'page', mode: 'out-in' },
 
