@@ -21,12 +21,12 @@
 
       <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn" width="90%" min-height="200"
         min-width="200" color="indigo">
-        <v-card-title class="text-h3 mb-5 mt-5">{{ selectedSong.french }}</v-card-title>
+        <v-card-title class="text-h3 mb-5 mt-5 animate__animated animate__fadeIn">{{ selectedSong.french }}</v-card-title>
         <!-- separateur -->
         <v-divider></v-divider>
         
 
-        <v-card-title class="text-h3 mb-5 mt-5">{{ selectedSong.english }}</v-card-title>
+        <v-card-title class="text-h3 mb-5 mt-5 animate__animated animate__fadeIn">{{ selectedSong.english }}</v-card-title>
       </v-card>
 
       <!-- Bouton pour récupérer une chanson aléatoire et ajouter un point -->
