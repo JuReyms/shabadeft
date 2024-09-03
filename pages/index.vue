@@ -1,6 +1,6 @@
 <template>
 
-  <v-sheet class="d-flex align-center justify-center flex-column animate__animated animate__fadeIn " height="100vh" 
+  <v-sheet class="d-flex align-center justify-center flex-column animate__animated animate__fadeIn " height="100vh"
     color="#E8EAF6">
 
 
@@ -14,26 +14,25 @@
 
       <h1 class="text-center my-10 text-uppercase text-h3">Shabadeft</h1>
 
-      <div class="text-center py-3 px-5 score">
-        <v-icon size="50">mdi-crown</v-icon> <span class="mx-5 font-weight-bold bg-indigo py-4 px-4 text-h4 score-count" style="vertical-align: middle">{{
+      <div class="d-flex flex-row align-center justify-center score rounded-lg">
+        <v-icon size="50">mdi-crown</v-icon>
+        <span class="mx-5 font-weight-bold bg-indigo py-4 px-4 text-h4 score-count" style="vertical-align: middle">{{
       scoreTeam1 }} · {{ scoreTeam2 }}</span>
         <v-icon size="50">mdi-crown-outline</v-icon>
       </div>
 
-      <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn" width="100%" min-height="200"
-        min-width="200" color="indigo">
+      <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn  rounded-lg" width="100%"
+        min-height="200" min-width="200" color="indigo">
 
 
         <v-card-title class="text-h3 mb-3 mt-5 animate__animated animate__fadeIn">{{ selectedSong.french
           }}</v-card-title>
 
 
-        <v-img :width="25" aspect-ratio="1/1" src="/flag-fr.png" class="mx-auto mb-5"></v-img>
 
         <!-- separateur -->
         <v-divider></v-divider>
 
-        <v-img :width="25" aspect-ratio="1/1" src="/flag-en.png" class="mx-auto mt-5"></v-img>
 
         <v-card-title class="text-h3 mb-5 mt-3 animate__animated animate__fadeIn">{{ selectedSong.english
           }}</v-card-title>
@@ -43,19 +42,68 @@
 
       <!-- Bouton pour récupérer une chanson aléatoire et ajouter un point -->
       <div class="text-center my-5  animate__animated animate__fadeInUp">
-        <v-btn @click="addPoint(1)" class="px-10 mr-5" height="60"><v-icon size="40">mdi-crown</v-icon></v-btn>
-        <v-btn @click="getRandomSong" class="px-6" height="60">
+        <v-btn @click="addPoint(1)" class="px-8 mr-5  rounded-lg" height="60"><v-icon
+            size="40">mdi-crown</v-icon></v-btn>
+        <v-btn @click="getRandomSong" class="px-4  rounded-lg" height="60">
           <v-icon size="40">mdi-music-circle-outline</v-icon>
         </v-btn>
-        <v-btn @click="addPoint(2)" class="px-10 ml-5" height="60"><v-icon size="40">mdi-crown-outline</v-icon></v-btn>
+        <v-btn @click="addPoint(2)" class="px-8 ml-5  rounded-lg" height="60"><v-icon
+            size="40">mdi-crown-outline</v-icon></v-btn>
       </div>
 
-      <p text class="text-center py-5 footer">2024 © shabadeft - 1.2</p>
+      <p text class="text-center pt-10 footer">2024 © shabadeft - 1.2</p>
+
+
+      <v-dialog>
+
+        <template v-slot:activator="{ props: activatorProps }">
+          <v-btn icon="mdi-menu" size="small" class="btn-menu" v-bind="activatorProps"></v-btn>
+        </template>
+
+        <template v-slot:default="{ isActive }">
+          <v-card title="Régles du jeu">
+            <v-card-text class="text-justify">
+              <p>Les équipes doivent trouver un extrait de chanson contenant l'un des deux mots proposés. La première
+                équipe à en trouver un démarre le jeu ! Il faut chanter au moins quelques mots de l'extrait choisi. Les
+                chansons peuvent être en français ou en anglais.</p>
+
+                <v-spacer class="my-8" ></v-spacer>
+
+              <p>Ensuite, c'est au tour de l'équipe adverse de trouver un nouvel extrait avec un mot de la même série, 
+                dans la langue de leur choix (français ou anglais).</p>
+
+              <v-spacer class="my-8" ></v-spacer>
+
+              <p>Le jeu continue ainsi, chaque équipe alternant les extraits correspondant aux mots de la série.</p>
+
+              <v-spacer class="my-8" ></v-spacer>
+
+              <p>Si une équipe ne parvient pas à trouver un extrait, l'équipe adverse peut entamer un compte à rebours de 10 secondes. 
+                Si le décompte se termine sans nouvel extrait, l'équipe qui a fait le décompte marque 1 point.</p>
+
+                <v-spacer class="my-8" ></v-spacer>
+
+              <p>La partie reprend ensuite avec l'équipe qui vient de perdre, en commençant une nouvelle série demots.</p>
+
+              <v-spacer class="my-8" ></v-spacer>
+              <p>La première équipe à atteindre 10 points remporte la partie (mais vous pouvez continuer au-delà des 10 points si vous le souhaitez).</p>
+
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn text="fermer" @click="isActive.value = false" class="px-4  rounded-lg" variant="tonal"></v-btn>
+            </v-card-actions>
+          </v-card>
+        </template>
+
+      </v-dialog>
+
 
 
     </section>
 
     <div v-else class="loader animate__animated animate__fadeIn"></div>
+
 
   </v-sheet>
 
@@ -123,6 +171,12 @@ export default {
 
 <style scoped>
 /* Ajoutez ici vos styles spécifiques si nécessaire */
+
+.btn-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
 
 .main {
   padding: 0;
