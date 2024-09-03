@@ -1,45 +1,57 @@
 <template>
 
-  <v-sheet class="d-flex align-center justify-center flex-column animate__animated animate__fadeIn" height="100vh" color="#E8EAF6">
- 
+  <v-sheet class="d-flex align-center justify-center flex-column animate__animated animate__fadeIn" height="100vh"
+    color="#E8EAF6">
+
 
     <!-- Affichage des erreurs -->
     <div v-if="error">
       <p>Error loading songs: {{ error.message }}</p>
     </div>
 
-    <section v-else-if="selectedSong">   
-      
-      
-      <h1 class="text-center my-10 text-uppercase text-h3" >Shabadeft</h1>
+    <section v-else-if="selectedSong">
 
-    <div class="text-center py-5 px-5 score">
-      <v-icon size="40">mdi-crown</v-icon> <span class="mx-5 font-weight-bold bg-indigo py-4 px-4" color="red">{{
-        scoreTeam1 }} · {{ scoreTeam2 }}</span>
-      <v-icon size="40">mdi-crown-outline</v-icon>
-    </div>
+
+      <h1 class="text-center my-10 text-uppercase text-h3">Shabadeft</h1>
+
+      <div class="text-center py-5 px-5 score">
+        <v-icon size="40">mdi-crown</v-icon> <span class="mx-5 font-weight-bold bg-indigo py-4 px-4" color="red">{{
+      scoreTeam1 }} · {{ scoreTeam2 }}</span>
+        <v-icon size="40">mdi-crown-outline</v-icon>
+      </div>
 
       <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn" width="90%" min-height="200"
         min-width="200" color="indigo">
-        <v-card-title class="text-h4 mb-5 mt-5 animate__animated animate__fadeIn">{{ selectedSong.french }}</v-card-title>
+
+
+        <v-card-title class="text-h4 mb-3 mt-5 animate__animated animate__fadeIn">{{ selectedSong.french
+          }}</v-card-title>
+
+
+        <v-img :width="20" aspect-ratio="1/1" src="/flag-fr.png" class="mx-auto mb-5"></v-img>
+
         <!-- separateur -->
         <v-divider></v-divider>
-        
 
-        <v-card-title class="text-h4 mb-5 mt-5 animate__animated animate__fadeIn">{{ selectedSong.english }}</v-card-title>
+        <v-img :width="20" aspect-ratio="1/1" src="/flag-en.png" class="mx-auto mt-5"></v-img>
+
+        <v-card-title class="text-h4 mb-5 mt-3 animate__animated animate__fadeIn">{{ selectedSong.english
+          }}</v-card-title>
+
+
       </v-card>
 
       <!-- Bouton pour récupérer une chanson aléatoire et ajouter un point -->
       <div class="text-center my-5  animate__animated animate__fadeInUp">
-        <v-btn @click="addPoint(1)" class="px-5 mr-5" height="60" ><v-icon size="40">mdi-crown</v-icon></v-btn>
+        <v-btn @click="addPoint(1)" class="px-5 mr-5" height="60"><v-icon size="40">mdi-crown</v-icon></v-btn>
         <v-btn @click="getRandomSong" class="px-5" height="60">
           <v-icon size="40">mdi-music-circle-outline</v-icon>
         </v-btn>
         <v-btn @click="addPoint(2)" class="px-5 ml-5" height="60"><v-icon size="40">mdi-crown-outline</v-icon></v-btn>
       </div>
 
-      <p text class="text-center py-5 footer" >2024 © shabadeft - 1.12</p>
-      
+      <p text class="text-center py-5 footer">2024 © shabadeft - 1.12</p>
+
 
     </section>
 
@@ -122,7 +134,7 @@ export default {
 .footer {
   color: #989bb3;
   padding: 0;
-  width: 100%;  
+  width: 100%;
   font-size: small;
 }
 
