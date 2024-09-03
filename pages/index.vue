@@ -1,6 +1,6 @@
 <template>
 
-  <v-sheet class="d-flex align-center justify-center flex-column animate__animated animate__fadeIn" height="100vh"
+  <v-sheet class="d-flex align-center justify-center flex-column animate__animated animate__fadeIn " height="100vh" 
     color="#E8EAF6">
 
 
@@ -9,7 +9,7 @@
       <p>Error loading songs: {{ error.message }}</p>
     </div>
 
-    <section v-else-if="selectedSong">
+    <section v-else-if="selectedSong" class="main">
 
 
       <h1 class="text-center my-10 text-uppercase text-h3">Shabadeft</h1>
@@ -20,22 +20,22 @@
         <v-icon size="40">mdi-crown-outline</v-icon>
       </div>
 
-      <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn" width="90%" min-height="200"
+      <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn" width="100%" min-height="200"
         min-width="200" color="indigo">
 
 
-        <v-card-title class="text-h4 mb-3 mt-5 animate__animated animate__fadeIn">{{ selectedSong.french
+        <v-card-title class="text-h3 mb-3 mt-5 animate__animated animate__fadeIn">{{ selectedSong.french
           }}</v-card-title>
 
 
-        <v-img :width="20" aspect-ratio="1/1" src="/flag-fr.png" class="mx-auto mb-5"></v-img>
+        <v-img :width="25" aspect-ratio="1/1" src="/flag-fr.png" class="mx-auto mb-5"></v-img>
 
         <!-- separateur -->
         <v-divider></v-divider>
 
-        <v-img :width="20" aspect-ratio="1/1" src="/flag-en.png" class="mx-auto mt-5"></v-img>
+        <v-img :width="25" aspect-ratio="1/1" src="/flag-en.png" class="mx-auto mt-5"></v-img>
 
-        <v-card-title class="text-h4 mb-5 mt-3 animate__animated animate__fadeIn">{{ selectedSong.english
+        <v-card-title class="text-h3 mb-5 mt-3 animate__animated animate__fadeIn">{{ selectedSong.english
           }}</v-card-title>
 
 
@@ -123,6 +123,11 @@ export default {
 
 <style scoped>
 /* Ajoutez ici vos styles spécifiques si nécessaire */
+
+.main {
+  padding: 0;
+  width: 90%;
+}
 
 .score {
   background-color: #C5CAE9;
