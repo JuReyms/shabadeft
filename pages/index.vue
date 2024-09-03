@@ -24,12 +24,14 @@
 
       <!-- Bouton pour récupérer une chanson aléatoire et ajouter un point -->
       <div class="text-center my-5  animate__animated animate__fadeInUp">
-        <v-btn @click="addPoint(1)" class="px-5 mr-5" height="60" color="amber-accent-2"><v-icon size="40">mdi-crown</v-icon></v-btn>
+        <v-btn @click="addPoint(1)" class="px-5 mr-5" height="60" ><v-icon size="40">mdi-crown</v-icon></v-btn>
         <v-btn @click="getRandomSong" class="px-5" height="60">
           <v-icon size="40">mdi-music-circle-outline</v-icon>
         </v-btn>
-        <v-btn @click="addPoint(2)" class="px-5 ml-5" height="60" color="amber-accent-2"><v-icon size="40">mdi-crown-outline</v-icon></v-btn>
+        <v-btn @click="addPoint(2)" class="px-5 ml-5" height="60"><v-icon size="40">mdi-crown-outline</v-icon></v-btn>
       </div>
+
+      <p text class="text-center py-5 footer" >© shabadeft - 1.0</p>
 
     </section>
 
@@ -49,7 +51,8 @@ export default {
       selectedSong: null,  // Chanson sélectionnée aléatoirement
       usedIds: [],         // IDs des chansons déjà récupérées
       scoreTeam1: 0,       // Score de l'Équipe 1
-      scoreTeam2: 0        // Score de l'Équipe 2
+      scoreTeam2: 0,        // Score de l'Équipe 2
+      loading: false      // btn - Chargement de la nouvelle chanson
     };
   },
   async mounted() {
@@ -105,6 +108,14 @@ export default {
   background-color: #C5CAE9;
   padding: 0;
   width: 100%;
+  font-size: 25px;
+}
+
+.footer {
+  color: #989bb3;
+  padding: 0;
+  width: 100%;  
+  font-size: small;
 }
 
 /* HTML: <div class="loader"></div> */
