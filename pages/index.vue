@@ -11,7 +11,7 @@
     <section v-else-if="selectedSong">   
       
       
-      <h1 class="text-center my-10 text-uppercase text-h3" >Shabadaft</h1>
+      <h1 class="text-center my-10 text-uppercase text-h3" >Shabadeft</h1>
 
     <div class="text-center py-5 px-5 score">
       <v-icon size="40">mdi-crown</v-icon> <span class="mx-5 font-weight-bold bg-indigo py-4 px-4" color="red">{{
@@ -38,7 +38,7 @@
         <v-btn @click="addPoint(2)" class="px-5 ml-5" height="60"><v-icon size="40">mdi-crown-outline</v-icon></v-btn>
       </div>
 
-      <p text class="text-center py-5 footer" >2024 © shabadaft - 1.12</p>
+      <p text class="text-center py-5 footer" >2024 © shabadeft - 1.12</p>
       
 
     </section>
