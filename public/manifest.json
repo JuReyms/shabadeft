@@ -8,7 +8,7 @@
 "dir": "auto",
 "theme_color": "#3f51b5",
 "background_color": "#3f51b5",
-"orientation": "any",
+"orientation": "portrait",
 "icons": [
     {
         "src": "https://shabadeft.netlify.app/android-chrome-512x512.png",
