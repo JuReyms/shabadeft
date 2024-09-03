@@ -25,18 +25,16 @@
        
       </div>
 
-      <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn  rounded-lg" width="100%"
+      <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn  rounded-lg"  width="100%"
         min-height="200" min-width="200" color="indigo">
 
 
-        <v-card-title class="text-h3 mb-5 mt-5 animate__animated animate__fadeIn">{{ selectedSong.french
-          }}</v-card-title>
+        <v-card-title class="text-h3 mb-5 mt-5 animate__animated animate__fadeIn">{{ selectedSong.french }}</v-card-title>
 
         <!-- separateur -->
-        <v-divider></v-divider>
+        <v-divider :thickness="10"></v-divider>
 
-        <v-card-title class="text-h3 mb-5 mt-5 animate__animated animate__fadeIn">{{ selectedSong.english
-          }}</v-card-title>
+        <v-card-title class="text-h3 mb-5 mt-5 animate__animated animate__fadeIn">{{ selectedSong.english }}</v-card-title>
 
 
       </v-card>
@@ -46,7 +44,7 @@
         <v-btn @click="addPoint(1)" class="px-8 mr-5  rounded-lg" height="60"><v-icon
             size="40">mdi-crown</v-icon></v-btn>
         <v-btn @click="getRandomSong" class="px-4  rounded-lg" height="60">
-          <v-icon size="40">mdi-music-circle-outline</v-icon>
+          <v-icon size="40"> mdi-close-circle-outline</v-icon>
         </v-btn>
         <v-btn @click="addPoint(2)" class="px-8 ml-5  rounded-lg" height="60"><v-icon
             size="40">mdi-crown-outline</v-icon></v-btn>
