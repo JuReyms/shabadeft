@@ -66,7 +66,7 @@
   { "id": 65, "french": "non", "english": "music" },
   { "id": 66, "french": "âme", "english": "sorry" },
   { "id": 67, "french": "toujours", "english": "crazy" },
-  { "id": 68, "french": "voix", "english": "smoke" },
+  { "id": 68, "french": "voix", "english": "Legalize" },
   { "id": 69, "french": "gare", "english": "time" },
   { "id": 70, "french": "toi", "english": "town" },
   { "id": 71, "french": "écrire", "english": "feel" },
@@ -199,7 +199,16 @@
     { "id" : 198, "french": "rester", "english": "must" },
     { "id" : 199, "french": "survivre", "english": "upon" },
     { "id" : 200, "french": "murs", "english": "face" },
-    { "id" : 201, "french": "jardin", "english": "end" }
+    { "id" : 201, "french": "jardin", "english": "end" },
+    { "id" : 202, "french": "boulevard", "english": "down" },
+    { "id" : 203, "french": "alcool", "english": "whisky" },
+    { "id" : 204, "french": "obscure", "english": "smoke" },
+    { "id" : 205, "french": "cigarette", "english": "hight" },
+    { "id" : 206, "french": "samedi", "english": "fall" },
+    { "id" : 207, "french": "guitare", "english": "burn" },
+    { "id" : 208, "french": "chanteuse", "english": "because" },
+    { "id" : 209, "french": "cul", "english": "ass" },
+    { "id" : 210, "french": "pétard", "english": "weed" }
   ]
   
   
