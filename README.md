@@ -1,75 +1,81 @@
-# Nuxt 3 Minimal Starter
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Nuxt App
 
-## Setup
+Ce projet est une application développée avec [Nuxt 3](https://nuxt.com/), un framework Vue.js performant et flexible. Il intégre diverses dépendances pour améliorer l'expérience utilisateur, notamment Vuetify pour le design UI, et `@nuxtjs/google-fonts` pour la gestion des polices Google.
 
-Make sure to install the dependencies:
+## Prérequis
+
+Avant de commencer, assurez-vous d'avoir installé [Node.js](https://nodejs.org/) (version 14.x ou supérieure) et [npm](https://www.npmjs.com/) (ou [yarn](https://yarnpkg.com/)) sur votre machine.
+
+## Installation
+
+Clonez ce dépot, puis installez les dépendances en exécutant la commande suivante dans le répertoire du projet :
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## Scripts npm
 
-Start the development server on `http://localhost:3000`:
+Voici les scripts disponibles dans ce projet :
+
+- **`dev`** : Lance l'application en mode développement.
+  
+  ```bash
+  npm run dev
+  ```
+
+- **`build`** : Compile l'application pour la production.
+  
+  ```bash
+  npm run build
+  ```
+
+- **`generate`** : Génére un site statique.
+  
+  ```bash
+  npm run generate
+  ```
+
+- **`preview`** : Lance un serveur local pour prévisualiser la version compilée en production.
+  
+  ```bash
+  npm run preview
+  ```
+
+- **`postinstall`** : Exécute la préparation nécessaire après l'installation des modules.
+  
+  Ce script est exécuté automatiquement après `npm install`.
+
+## DÃ©pendances
+
+- **@mdi/font** : Collection d'icônes Material Design.
+- **nuxt** : Le framework Nuxt 3.
+- **vue** : La bibliothèque Vue.js.
+- **vue-router** : Le routeur officiel pour Vue.js.
+
+## DÃ©pendances de développement
+
+- **@hypernym/nuxt-anime** : Intégration de la bibliothèque Anime.js pour Nuxt.
+- **@nuxtjs/google-fonts** : Module Nuxt pour intégrer facilement les polices Google.
+- **nuxt-mdi** : Intégration de Material Design Icons pour Nuxt.
+- **vuetify** : Framework Vue pour des composants UI stylisés.
+- **vuetify-nuxt-module** : Module Nuxt pour Vuetify.
+
+## Lancer l'application
+
+Après avoir installé les dépendances, vous pouvez lancer l'application en mode développement avec la commande :
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+Ensuite, ouvrez [http://localhost:3000](http://localhost:3000) pour voir votre application dans le navigateur.
 
-Build the application for production:
+## Contribuer
 
-```bash
-# npm
-npm run build
+Les contributions sont les bienvenues ! Si vous trouvez un bug ou souhaitez proposer une amélioration, n'hésitez pas à créer une issue ou à  soumettre une pull request.
 
-# pnpm
-pnpm run build
+## Licence
 
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
