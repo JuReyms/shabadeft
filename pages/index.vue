@@ -277,7 +277,7 @@ export default {
 
 .btn-menu {
   position: absolute;
-  top: 10px;
+  top: 4vh;
   right: 10px;
 }
 
