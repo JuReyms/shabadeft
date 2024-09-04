@@ -52,7 +52,6 @@ Voici les scripts disponibles dans ce projet :
 - **@mdi/font** : Collection d'icônes Material Design.
 - **nuxt** : Le framework Nuxt 3.
 - **vue** : La bibliothèque Vue.js.
-- **vue-router** : Le routeur officiel pour Vue.js.
 
 ## Dépendances de développement
 
