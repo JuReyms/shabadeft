@@ -1,7 +1,11 @@
 
-# Nuxt App
+# Shabadeft
 
 Ce projet est une application développée avec [Nuxt 3](https://nuxt.com/), un framework Vue.js performant et flexible. Il intégre diverses dépendances pour améliorer l'expérience utilisateur, notamment Vuetify pour le design UI, et `@nuxtjs/google-fonts` pour la gestion des polices Google.
+
+## App
+
+Visite le site [shabadeft.netlify.app](https://shabadeft.netlify.app/) pour essayer l'application.
 
 ## Prérequis
 
