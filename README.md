@@ -47,14 +47,14 @@ Voici les scripts disponibles dans ce projet :
   
   Ce script est exécuté automatiquement après `npm install`.
 
-## DÃ©pendances
+## Dépendances
 
 - **@mdi/font** : Collection d'icônes Material Design.
 - **nuxt** : Le framework Nuxt 3.
 - **vue** : La bibliothèque Vue.js.
 - **vue-router** : Le routeur officiel pour Vue.js.
 
-## DÃ©pendances de développement
+## Dépendances de développement
 
 - **@hypernym/nuxt-anime** : Intégration de la bibliothèque Anime.js pour Nuxt.
 - **@nuxtjs/google-fonts** : Module Nuxt pour intégrer facilement les polices Google.
