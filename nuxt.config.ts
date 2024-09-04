@@ -21,7 +21,7 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       title: 'Shabadeft - Battle songs',
       meta: [
-        { name: 'description', content: 'Shabadeft' },
+        { name: 'description', content: "Shabadeft est un jeu musical inspiré librement du jeu de carte Shabada où deux équipes s'affrontent pour trouver et chanter des extraits de chansons contenant un mot proposé. " },
         { name: 'type', content: 'website' },
         { name: 'robots', content: 'index,follow' }
       ],
