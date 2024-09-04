@@ -10,12 +10,14 @@
     </div>
 
 
+
     <!-- Chargement des chansons -->
     <section v-else-if="selectedSong" class="main">
 
       <h1 class="text-center my-10 text-uppercase text-h4">Shabadeft</h1>
 
-      <div class="d-flex flex-row align-center justify-center score rounded-lg justify-space-evenly">
+      <!-- Scores -->
+      <div class="d-flex flex-row align-center justify-center score rounded-lg justify-space-evenly animate__animated animate__fadeInDown">
         <v-icon size="50">mdi-crown</v-icon>
         <div class=" font-weight-bold bg-indigo py-4 px-8 text-h4 score-count score-bg " style="vertical-align: middle">
           <div class="score-display"> {{ scoreTeam1 }} · {{ scoreTeam2 }}</div>
@@ -23,8 +25,18 @@
         <v-icon size="50">mdi-crown-outline</v-icon>
       </div>
 
-      <v-card class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn  rounded-lg carte-tourne"  width="100%"
-        min-height="200" min-width="200" color="indigo">
+      <!-- Bouton pour commencer la partie -->
+      <v-card v-if="!isStart"
+        class=" d-flex flex-row align-center justify-center mx-auto my-10 text-center py-5 animate__animated animate__fadeIn  rounded-lg carte-tourne"
+        width="100%" min-height="315" min-width="200" color="indigo">
+        <v-btn @click="startGame" class="px-4  rounded-lg animate__animated animate__tada" height="100"> <v-icon
+            size="80"> mdi-play-circle-outline</v-icon></v-btn>
+      </v-card>
+
+
+      <!-- Carte de chanson -->
+      <v-card v-else class="mx-auto my-10 text-center py-5 animate__animated animate__fadeIn  rounded-lg carte-tourne"
+        width="100%" min-height="200" min-width="200" color="indigo">
 
         <v-card-title class="text-h3 mb-5 mt-5 carte-typo">{{ selectedSong.french }}</v-card-title>
 
@@ -37,16 +49,27 @@
 
 
 
-
-
       <!-- Bouton pour récupérer une chanson aléatoire et ajouter un point -->
       <div class="text-center my-5  animate__animated animate__fadeInUp">
-        <v-btn @click="addPoint(1)" class="px-8 mr-5  rounded-lg" height="60"><v-icon size="40">mdi-crown</v-icon></v-btn>
-        <v-btn @click="getRandomSong" class="px-4  rounded-lg" height="60">
+
+        <!-- Boutons de points - equipe 1 -->
+        <v-btn @click="addPoint(1)" class="px-7 mr-5  rounded-lg" height="60"><v-icon
+            size="40">mdi-crown</v-icon></v-btn>
+
+        <!-- Bouton pour changer de mots sans point -->
+        <v-btn v-if="!isStart" class="px-7  rounded-lg" height="60">
           <v-icon size="40"> mdi-close-circle-outline</v-icon>
         </v-btn>
-        <v-btn @click="addPoint(2)" class="px-8 ml-5  rounded-lg" height="60"><v-icon size="40">mdi-crown-outline</v-icon></v-btn>
+        <v-btn v-else @click="getRandomSong" class="px-4  rounded-lg" height="60">
+          <v-icon size="40"> mdi-close-circle-outline</v-icon>
+        </v-btn>
+
+        <!-- Boutons de points - equipe 2 -->
+        <v-btn @click="addPoint(2)" class="px-7 ml-5  rounded-lg" height="60"><v-icon
+            size="40">mdi-crown-outline</v-icon></v-btn>
+
       </div>
+
 
       <p text class="text-center pt-10 footer">2024 © shabadeft - {{ version }}</p>
 
@@ -61,13 +84,14 @@
 
             <v-card-title class="text-h4">Régles du jeu</v-card-title>
             <v-card-text class="text-justify">
-              <p>Les équipes (noire et blanche) doivent trouver un extrait de chanson contenant l'un des deux mots proposés. La première
+              <p>Les équipes (noire et blanche) doivent trouver un extrait de chanson contenant l'un des deux mots
+                proposés. La première
                 équipe à en trouver un démarre le jeu ! Il faut chanter au moins quelques mots de l'extrait choisi. Les
                 chansons peuvent être en français ou en anglais.</p>
 
               <v-spacer class="my-8"></v-spacer>
 
-              <p>Ensuite, c'est au tour de l'équipe adverse de trouver un nouvel extrait avec un mot de la même série, 
+              <p>Ensuite, c'est au tour de l'équipe adverse de trouver un nouvel extrait avec un mot de la même série,
                 dans la langue de leur choix (français ou anglais).</p>
 
               <v-spacer class="my-8"></v-spacer>
@@ -76,15 +100,18 @@
 
               <v-spacer class="my-8"></v-spacer>
 
-              <p>Si une équipe ne parvient pas à trouver un extrait, l'équipe adverse peut entamer un compte à rebours de 10 secondes. 
+              <p>Si une équipe ne parvient pas à trouver un extrait, l'équipe adverse peut entamer un compte à rebours
+                de 10 secondes.
                 Si le décompte se termine sans nouvel extrait, l'équipe qui a fait le décompte marque 1 point.</p>
 
               <v-spacer class="my-8"></v-spacer>
 
-              <p>La partie reprend ensuite avec l'équipe qui vient de perdre, en commençant une nouvelle série de mots.</p>
+              <p>La partie reprend ensuite avec l'équipe qui vient de perdre, en commençant une nouvelle série de mots.
+              </p>
 
               <v-spacer class="my-8"></v-spacer>
-              <p>La première équipe à atteindre 10 points remporte la partie (mais vous pouvez continuer au-delà des 10 points si vous le souhaitez).</p>
+              <p>La première équipe à atteindre 10 points remporte la partie (mais vous pouvez continuer au-delà des 10
+                points si vous le souhaitez).</p>
 
             </v-card-text>
             <v-card-actions>
@@ -99,8 +126,12 @@
 
 
 
+
     <!-- Chargement... -->
-    <div v-else class="loader animate__animated animate__fadeIn"></div>
+    <section v-else class="d-flex flex-column justify-center align-center animate__animated animate__fadeIn">
+      <v-img src="/android-chrome-192x192.png" :width="120" :height="120" class="  my-10"></v-img>
+      <div class="loader "></div>
+    </section>
 
   </v-sheet>
 
@@ -120,7 +151,8 @@ export default {
       usedIds: [],         // IDs des chansons déjà récupérées
       scoreTeam1: 0,       // Score de l'Équipe 1
       scoreTeam2: 0,       // Score de l'Équipe 2
-      version: '1.3.0'     // Version du jeu
+      version: '1.3.5',     // Version du jeu
+      isStart: false,      // Lancement de la partie
     };
   },
   async mounted() {
@@ -139,91 +171,99 @@ export default {
   },
   methods: {
 
+    startGame() {
+      this.isStart = true;
+    },
+
     getRandomSong() {
-  if (this.songs.length === 0) return;
 
-  // Filtrer les chansons non encore utilisées
-  const availableSongs = this.songs.filter(song => !this.usedIds.includes(song.id));
+      if (this.songs.length === 0) return;
 
-  if (availableSongs.length === 0) {
-    alert("Il n'y a plus de chansons disponibles ! Réachez la page pour recommencer une partie.");
-    return;
-  }
+      // Filtrer les chansons non encore utilisées
+      const availableSongs = this.songs.filter(song => !this.usedIds.includes(song.id));
 
-  // Anime.js: Ajouter l'animation de rotation et d'opacité
-  anime({
-    targets: '.carte-tourne',
-    rotateX: 180,  // Une rotation complète sur l'axe X
-    duration: 1500,    // Durée de l'animation en millisecondes
-    easing: 'easeInOutQuad', // Courbe d'accélération pour une rotation fluide
-    begin: () => {
-      // Réduire l'opacité à 0 au début de la rotation
+      if (availableSongs.length === 0) {
+        alert("Il n'y a plus de chansons disponibles ! Réachez la page pour recommencer une partie.");
+        return;
+      }
+
+      // Anime.js: Ajouter l'animation de rotation et d'opacité
       anime({
-        targets: '.carte-typo',
-        opacity: 0,
-        duration: 250,  // Durée de la transition d'opacité
-        easing: 'easeInOutQuad'
+        targets: '.carte-tourne',
+        rotateX: 180,  // Une rotation complète sur l'axe X
+        duration: 1500,    // Durée de l'animation en millisecondes
+        easing: 'easeInOutQuad', // Courbe d'accélération pour une rotation fluide
+        begin: () => {
+          // Réduire l'opacité à 0 au début de la rotation
+          anime({
+            targets: '.carte-typo',
+            opacity: 0,
+            duration: 250,  // Durée de la transition d'opacité
+            easing: 'easeInOutQuad'
+          });
+        },
+        complete: () => {
+          // Réinitialiser la rotation pour permettre la prochaine animation
+          anime.set('.carte-tourne', { rotateX: 0 });
+
+          // Sélectionner une chanson aléatoire parmi celles disponibles une fois l'animation terminée
+          const randomIndex = Math.floor(Math.random() * availableSongs.length);
+          this.selectedSong = availableSongs[randomIndex];
+
+          // Ajouter l'ID de la chanson sélectionnée aux IDs utilisés
+          this.usedIds.push(this.selectedSong.id);
+          console.log('this.usedIds :', this.usedIds);
+
+          // Restaurer l'opacité à 1 après la rotation et changement de texte
+          anime({
+            targets: '.carte-typo',
+            opacity: 1,
+            duration: 1000,  // Durée du fondu pour revenir à l'opacité 1
+            delay: 100,      // Debut du fondu à 500 millisecondes
+            easing: 'easeInOutQuad'
+          });
+        }
       });
     },
-    complete: () => {
-      // Réinitialiser la rotation pour permettre la prochaine animation
-      anime.set('.carte-tourne', { rotateX: 0 });
 
-      // Sélectionner une chanson aléatoire parmi celles disponibles une fois l'animation terminée
-      const randomIndex = Math.floor(Math.random() * availableSongs.length);
-      this.selectedSong = availableSongs[randomIndex];
 
-      // Ajouter l'ID de la chanson sélectionnée aux IDs utilisés
-      this.usedIds.push(this.selectedSong.id);
-      console.log('this.usedIds :', this.usedIds);
+    addPoint(team) {
+      if (this.isStart) {
+        if (team === 1) {
+          this.scoreTeam1++;
+        } else if (team === 2) {
+          this.scoreTeam2++;
+        }
 
-      // Restaurer l'opacité à 1 après la rotation et changement de texte
-      anime({
-        targets: '.carte-typo',
-        opacity: 1,
-        duration: 1000,  // Durée du fondu pour revenir à l'opacité 1
-        delay: 100,      // Debut du fondu à 500 millisecondes
-        easing: 'easeInOutQuad'
-      });
+
+        // Anime.js: Ajouter une animation de "scale" sur le score
+        anime({
+          targets: '.score-display',
+          scale: [1, 1.2],   // Augmente la taille de 1 à 1.2
+          duration: 250,     // Durée de l'animation en millisecondes
+          easing: 'easeInOutQuad', // Courbe d'accélération pour une transition fluide
+          direction: 'alternate',  // Revenir à la taille normale après l'animation
+          complete: () => {
+            // Remise à l'échelle normale une fois l'animation terminée
+            anime.set('.score-display', { scale: 1 });
+          }
+        });
+
+        // Anime.js: Ajouter une animation de changement de couleur sur le fond score
+        anime({
+          targets: '.score-bg',
+          backgroundColor: [
+            { value: '#C5CAE9' }, // Couleur de fond souhaitée pendant l'animation
+            { value: '#E8EAF6' }  // Couleur de fond normale à la fin de l'animation
+          ],
+          duration: 250,     // Durée de l'animation en millisecondes
+          easing: 'easeInOutQuad', // Courbe d'accélération pour une transition fluide
+          direction: 'alternate'  // Revenir à la couleur normale après l'animation
+        });
+
+        this.getRandomSong();
+      }
     }
-  });
-},
-
-
-addPoint(team) {
-  if (team === 1) {
-    this.scoreTeam1++;
-  } else if (team === 2) {
-    this.scoreTeam2++;
-  }
-
-  // Anime.js: Ajouter une animation de "scale" sur le score
-  anime({
-    targets: '.score-display',
-    scale: [1, 1.2],   // Augmente la taille de 1 à 1.2
-    duration: 250,     // Durée de l'animation en millisecondes
-    easing: 'easeInOutQuad', // Courbe d'accélération pour une transition fluide
-    direction: 'alternate',  // Revenir à la taille normale après l'animation
-    complete: () => {
-      // Remise à l'échelle normale une fois l'animation terminée
-      anime.set('.score-display', { scale: 1 });
-    }
-  });
-
-  // Anime.js: Ajouter une animation de changement de couleur sur le fond score
-  anime({
-    targets: '.score-bg',
-    backgroundColor: [
-      { value: '#C5CAE9' }, // Couleur de fond souhaitée pendant l'animation
-      { value: '#E8EAF6' }  // Couleur de fond normale à la fin de l'animation
-    ],
-    duration: 250,     // Durée de l'animation en millisecondes
-    easing: 'easeInOutQuad', // Courbe d'accélération pour une transition fluide
-    direction: 'alternate'  // Revenir à la couleur normale après l'animation
-  });
-
-  this.getRandomSong();
-}
 
 
 
