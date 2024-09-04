@@ -66,7 +66,7 @@
   { "id": 65, "french": "non", "english": "music" },
   { "id": 66, "french": "âme", "english": "sorry" },
   { "id": 67, "french": "toujours", "english": "crazy" },
-  { "id": 68, "french": "voix", "english": "Legalize" },
+  { "id": 68, "french": "voix", "english": "legalize" },
   { "id": 69, "french": "gare", "english": "time" },
   { "id": 70, "french": "toi", "english": "town" },
   { "id": 71, "french": "écrire", "english": "feel" },
@@ -116,7 +116,7 @@
     { "id" : 115, "french": "homme", "english": "believe" },
     { "id" : 116, "french": "savoir", "english": "tomorow" },
     { "id" : 117, "french": "faim", "english": "yesterday" },
-    { "id" : 118, "french": "dire, parler", "english": "right" },
+    { "id" : 118, "french": "dire", "english": "right" },
     { "id" : 119, "french": "danser", "english": "nobody" },
     { "id" : 120, "french": "bois, foret", "english": "story" },
     { "id" : 121, "french": "pauvre", "english": "before" },
@@ -208,7 +208,12 @@
     { "id" : 207, "french": "guitare", "english": "burn" },
     { "id" : 208, "french": "chanteuse", "english": "because" },
     { "id" : 209, "french": "cul", "english": "ass" },
-    { "id" : 210, "french": "pétard", "english": "weed" }
+    { "id" : 210, "french": "pétard", "english": "weed" },
+    { "id" : 211, "french": "parler", "english": "dancefloor" },
+    { "id" : 212, "french": "travailler", "english": "color" },
+    { "id" : 213, "french": "france", "english": "vice" },
+    { "id" : 214, "french": "bruxelles", "english": "new york" },
+    { "id" : 215, "french": "bourgeois", "english": "midnight" }
   ]
   
   
