@@ -1,5 +1,6 @@
 <template>
 
+  <!-- Block flex -->
   <v-sheet class="d-flex align-center justify-center flex-column animate__animated animate__fadeIn " height="100vh"
     color="#E8EAF6">
 
@@ -8,6 +9,8 @@
       <p>Error loading songs: {{ error.message }}</p>
     </div>
 
+
+    <!-- Chargement des chansons -->
     <section v-else-if="selectedSong" class="main">
 
       <h1 class="text-center my-10 text-uppercase text-h4">Shabadeft</h1>
@@ -32,6 +35,10 @@
 
       </v-card>
 
+
+
+
+
       <!-- Bouton pour récupérer une chanson aléatoire et ajouter un point -->
       <div class="text-center my-5  animate__animated animate__fadeInUp">
         <v-btn @click="addPoint(1)" class="px-8 mr-5  rounded-lg" height="60"><v-icon size="40">mdi-crown</v-icon></v-btn>
@@ -43,6 +50,7 @@
 
       <p text class="text-center pt-10 footer">2024 © shabadeft - {{ version }}</p>
 
+      <!-- Bouton pour afficher les regles du jeu -->
       <v-dialog>
         <template v-slot:activator="{ props: activatorProps }">
           <v-btn icon="mdi-menu" size="small" class="btn-menu" v-bind="activatorProps"></v-btn>
@@ -89,6 +97,9 @@
 
     </section>
 
+
+
+    <!-- Chargement... -->
     <div v-else class="loader animate__animated animate__fadeIn"></div>
 
   </v-sheet>
@@ -109,9 +120,7 @@ export default {
       usedIds: [],         // IDs des chansons déjà récupérées
       scoreTeam1: 0,       // Score de l'Équipe 1
       scoreTeam2: 0,       // Score de l'Équipe 2
-      loading: false,       // btn - Chargement de la nouvelle chanson
       version: '1.3.0'     // Version du jeu
-
     };
   },
   async mounted() {
