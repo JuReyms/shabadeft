@@ -1,6 +1,9 @@
 
 # Shabadeft
 
+Shabadeft est un jeu musical inspiré librement du jeu de carte Shabada où deux équipes s'affrontent pour trouver et chanter des extraits de chansons contenant un mot proposé. Les chansons peuvent être en français ou en anglais.  
+
+
 Ce projet est une application développée avec [Nuxt 3](https://nuxt.com/), un framework Vue.js performant et flexible. Il intégre diverses dépendances pour améliorer l'expérience utilisateur, notamment Vuetify pour le design UI, et `@nuxtjs/google-fonts` pour la gestion des polices Google.
 
 ## App
