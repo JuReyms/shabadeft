@@ -1,8 +1,7 @@
 <template>
 
   <!-- Block flex -->
-  <v-sheet class="d-flex align-center justify-center flex-column animate__animated animate__fadeIn " height="100vh"
-    color="#E8EAF6">
+  <v-sheet class="d-flex align-center justify-center flex-column animate__animated animate__fadeIn " height="100vh">
 
     <!-- Affichage des erreurs -->
     <div v-if="error">
@@ -150,10 +149,11 @@
         <template v-slot:default="{ isActive }">
           <v-card>
             <v-card-title class="text-h4 text-center">Paramètres </v-card-title>
-              <v-btn prepend-icon="mdi-reload" variant="tonal" class="my-2 mx-auto" @click="reloadPage">Recommencer la partie</v-btn>
-              <v-btn prepend-icon="mdi-share-variant" variant="tonal" class="my-2  mx-auto" @click="shareApp">Partager l'application</v-btn>
-              <v-btn prepend-icon="mdi-github" variant="tonal" class="my-2 mx-auto" href="https://github.com/JuReyms/shabadeft" target="_blank">GitHub</v-btn> 
-
+              <v-btn prepend-icon="mdi-reload"  class="my-2 mx-auto" @click="reloadPage">Recommencer la partie</v-btn>
+              <BtnTheme/>
+              <v-btn prepend-icon="mdi-share-variant"  class="my-2  mx-auto" @click="shareApp">Partager</v-btn>
+              <v-btn prepend-icon="mdi-github"  class="my-2 mx-auto" href="https://github.com/JuReyms/shabadeft" target="_blank">GitHub</v-btn> 
+              
             <v-card-text>  
               <p text class="text-center"> Cette application gratuite est inspirée librement du jeu de carte Shabada.</p>
           </v-card-text>
@@ -197,7 +197,7 @@ export default {
       usedIds: [],         // IDs des chansons déjà récupérées
       scoreTeam1: 0,       // Score de l'Équipe 1
       scoreTeam2: 0,       // Score de l'Équipe 2
-      version: '1.4.0',     // Version du jeu
+      version: '1.5.0',     // Version du jeu
       isStart: false,      // Lancement de la partie
     };
   },

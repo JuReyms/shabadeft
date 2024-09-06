@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   modules: ['vuetify-nuxt-module', 
     '@hypernym/nuxt-anime',
     'nuxt-mdi', 
+    '@nuxtjs/color-mode',
     ['@nuxtjs/google-fonts', {
     families: {
       Roboto: true,
