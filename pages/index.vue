@@ -120,10 +120,10 @@
                 <v-spacer class="my-8"></v-spacer>
 
                 <ul class="text-justify px-3">
-                  <li class="my-2">Les comptines et les pèmes sont valables</li>
+                  <li class="my-2">Les comptines et les poèmes sont valables</li>
                   <li class="my-2">Les verbes peuvent être conjugués</li>
                   <li class="my-2">On peut chanter plusieurs fois la même chanson dans une partie mais pas pour la même
-                    serie de carte</li>
+                    serie de mots</li>
                   <li class="my-2">Loulou, ça ne sert à rien de traiter les autres joueurs de nazes, tu vas quand même perdre...
                   </li>
                 </ul>
