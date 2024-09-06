@@ -17,7 +17,8 @@
       <h1 class="text-center my-10 text-uppercase text-h4">Shabadeft</h1>
 
       <!-- Scores -->
-      <div class="d-flex flex-row align-center justify-center score rounded-lg justify-space-evenly animate__animated animate__fadeInDown">
+      <div
+        class="d-flex flex-row align-center justify-center score rounded-lg justify-space-evenly animate__animated animate__fadeInDown">
         <v-icon size="50">mdi-crown</v-icon>
         <div class=" font-weight-bold bg-indigo py-4 px-8 text-h4 score-count score-bg " style="vertical-align: middle">
           <div class="score-display"> {{ scoreTeam1 }} · {{ scoreTeam2 }}</div>
@@ -71,53 +72,98 @@
       </div>
 
 
-      <p text class="text-center pt-10 footer">2024 © shabadeft - {{ version }}</p>
-
       <!-- Bouton pour afficher les regles du jeu -->
-      <v-dialog>
-        <template v-slot:activator="{ props: activatorProps }">
-          <v-btn icon="mdi-menu" size="small" class="btn-menu" v-bind="activatorProps"></v-btn>
+      <div class="text-center py-5">
+        <v-dialog>
+          <template v-slot:activator="{ props: activatorProps }">
+            <v-btn size="small" v-bind="activatorProps"> Regles du jeu</v-btn>
+          </template>
+
+          <template v-slot:default="{ isActive }">
+            <v-card class="pa-4 mx-auto" max-width="500">
+
+              <v-card-title class="text-h4">Régles du jeu</v-card-title>
+
+              <v-card-text class="text-justify">
+
+                <p>Les équipes (noire et blanche) doivent trouver un extrait de chanson contenant l'un des deux mots
+                  proposés. La première
+                  équipe à en trouver un démarre le jeu ! Il faut chanter au moins quelques mots de l'extrait choisi.
+                  Les
+                  chansons peuvent être en français ou en anglais.</p>
+
+                <v-spacer class="my-8"></v-spacer>
+
+                <p>Ensuite, c'est au tour de l'équipe adverse de trouver un nouvel extrait avec un mot de la même série,
+                  dans la langue de leur choix (français ou anglais).</p>
+
+                <v-spacer class="my-8"></v-spacer>
+
+                <p>Le jeu continue ainsi, chaque équipe alternant les extraits correspondant aux mots de la série.</p>
+
+                <v-spacer class="my-8"></v-spacer>
+
+                <p>Si une équipe ne parvient pas à trouver un extrait, l'équipe adverse peut entamer un compte à rebours
+                  de 10 secondes.
+                  Si le décompte se termine sans nouvel extrait, l'équipe qui a fait le décompte marque 1 point.</p>
+
+                <v-spacer class="my-8"></v-spacer>
+
+                <p>La partie reprend ensuite avec l'équipe qui vient de perdre, en commençant une nouvelle série de
+                  mots.
+                </p>
+
+                <v-spacer class="my-8"></v-spacer>
+                <p>La première équipe à atteindre 10 points remporte la partie (mais vous pouvez continuer au-delà des
+                  10
+                  points si vous le souhaitez).</p>
+
+                <v-spacer class="my-8"></v-spacer>
+
+                <ul class="text-justify px-3">
+                  <li class="my-2">Les comptines et les pèmes sont valables</li>
+                  <li class="my-2">Les verbes peuvent être conjugués</li>
+                  <li class="my-2">On peut chanter plusieurs fois la même chanson dans une partie mais pas pour la même
+                    serie de carte</li>
+                  <li class="my-2">Loulou, ça ne sert à rien de traiter les autres joueurs de nazes, tu vas quand même perdre...
+                  </li>
+                </ul>
+              </v-card-text>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn @click="isActive.value = false" class="px-4 mx-auto" elevation="3" >Fermer</v-btn>
+              </v-card-actions>
+            </v-card>
+          </template>
+        </v-dialog>
+      </div>
+
+
+
+      <!-- Bouton pour afficher les options -->
+      <v-dialog max-width="500">
+        <template v-slot:activator="{ props: activatorProps2 }">
+          <v-btn icon="mdi-dots-vertical" size="small" class="btn-menu" v-bind="activatorProps2" elevation="0"></v-btn>
         </template>
 
         <template v-slot:default="{ isActive }">
-          <v-card class="pa-4 mx-auto" max-width="900" width="100%">
+          <v-card>
+            <v-card-title class="text-h4 text-center">Paramètres </v-card-title>
+              <v-btn prepend-icon="mdi-reload" variant="tonal" class="my-2 mx-auto" @click="reloadPage">Recommencer la partie</v-btn>
+              <v-btn prepend-icon="mdi-share-variant" variant="tonal" class="my-2  mx-auto">Partager l'application</v-btn>
+              <v-btn prepend-icon="mdi-github" variant="tonal" class="my-2 mx-auto" href="https://github.com/JuReyms/shabadeft" target="_blank">GitHub</v-btn> 
 
-            <v-card-title class="text-h4">Régles du jeu</v-card-title>
-            <v-card-text class="text-justify">
-              <p>Les équipes (noire et blanche) doivent trouver un extrait de chanson contenant l'un des deux mots
-                proposés. La première
-                équipe à en trouver un démarre le jeu ! Il faut chanter au moins quelques mots de l'extrait choisi. Les
-                chansons peuvent être en français ou en anglais.</p>
+            <v-card-text>  
+              <p text class="text-center"> Cette application gratuite est inspirée librement du jeu de carte Shabada.</p>
+          </v-card-text>
 
-              <v-spacer class="my-8"></v-spacer>
-
-              <p>Ensuite, c'est au tour de l'équipe adverse de trouver un nouvel extrait avec un mot de la même série,
-                dans la langue de leur choix (français ou anglais).</p>
-
-              <v-spacer class="my-8"></v-spacer>
-
-              <p>Le jeu continue ainsi, chaque équipe alternant les extraits correspondant aux mots de la série.</p>
-
-              <v-spacer class="my-8"></v-spacer>
-
-              <p>Si une équipe ne parvient pas à trouver un extrait, l'équipe adverse peut entamer un compte à rebours
-                de 10 secondes.
-                Si le décompte se termine sans nouvel extrait, l'équipe qui a fait le décompte marque 1 point.</p>
-
-              <v-spacer class="my-8"></v-spacer>
-
-              <p>La partie reprend ensuite avec l'équipe qui vient de perdre, en commençant une nouvelle série de mots.
-              </p>
-
-              <v-spacer class="my-8"></v-spacer>
-              <p>La première équipe à atteindre 10 points remporte la partie (mais vous pouvez continuer au-delà des 10
-                points si vous le souhaitez).</p>
-
-            </v-card-text>
             <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn text="fermer" @click="isActive.value = false" class="px-4  rounded-lg" variant="tonal"></v-btn>
+              <v-btn @click="isActive.value = false" class="my-2 mx-auto"  elevation="3">Fermer</v-btn>
             </v-card-actions>
+            
+            <p text class="text-center py-5 footer">2024 © shabadeft - {{ version }}</p>
+
           </v-card>
         </template>
       </v-dialog>
@@ -151,7 +197,7 @@ export default {
       usedIds: [],         // IDs des chansons déjà récupérées
       scoreTeam1: 0,       // Score de l'Équipe 1
       scoreTeam2: 0,       // Score de l'Équipe 2
-      version: '1.3.5',     // Version du jeu
+      version: '1.4.0',     // Version du jeu
       isStart: false,      // Lancement de la partie
     };
   },
@@ -183,7 +229,7 @@ export default {
       const availableSongs = this.songs.filter(song => !this.usedIds.includes(song.id));
 
       if (availableSongs.length === 0) {
-        alert("Il n'y a plus de chansons disponibles ! Réachez la page pour recommencer une partie.");
+        alert("Il n'y a plus de chansons disponibles... Rechargez la page pour recommencer une partie !");
         return;
       }
 
@@ -263,6 +309,10 @@ export default {
 
         this.getRandomSong();
       }
+    },
+
+    reloadPage() {
+      location.reload();
     }
 
 
