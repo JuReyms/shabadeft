@@ -151,7 +151,7 @@
           <v-card>
             <v-card-title class="text-h4 text-center">Paramètres </v-card-title>
               <v-btn prepend-icon="mdi-reload" variant="tonal" class="my-2 mx-auto" @click="reloadPage">Recommencer la partie</v-btn>
-              <v-btn prepend-icon="mdi-share-variant" variant="tonal" class="my-2  mx-auto">Partager l'application</v-btn>
+              <v-btn prepend-icon="mdi-share-variant" variant="tonal" class="my-2  mx-auto" @click="shareApp">Partager l'application</v-btn>
               <v-btn prepend-icon="mdi-github" variant="tonal" class="my-2 mx-auto" href="https://github.com/JuReyms/shabadeft" target="_blank">GitHub</v-btn> 
 
             <v-card-text>  
@@ -310,6 +310,21 @@ export default {
         this.getRandomSong();
       }
     },
+
+
+    shareApp() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Shabadeft - Songs Battle',
+      text: 'Shabadeft, le battle de musiques !',
+      url: "https://shabadeft.netlify.app/",
+    })
+    .then(() => console.log('Partage réussi !'))
+    .catch((error) => console.log('Erreur lors du partage :', error));
+  } else {
+    console.log('L\'API de partage n\'est pas supportée sur ce navigateur.');
+  }
+},
 
     reloadPage() {
       location.reload();
